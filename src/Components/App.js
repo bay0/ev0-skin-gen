@@ -62,7 +62,7 @@ export default class App extends Component {
         let matchSkinId = skinfield.match(regex)[0]
         let skinElement = {
             "dyn_stattrak": stattrak,
-            "paintkit": parseInt(matchSkinId[0]),
+            "paintkit": parseInt(matchSkinId),
             "seed": 0,
             "stattrak": -1,
             "weapon": weapon.id,
@@ -76,7 +76,8 @@ export default class App extends Component {
     var file = new Blob([JSON.stringify(skinSave, null, 2)], {type: 'application/json'});
     a.href = URL.createObjectURL(file);
     a.download = "Skins";
-    a.click();
+    console.log(skinSave);
+    //a.click();
   }
 
   weaponCard(id, name) {
@@ -139,14 +140,14 @@ export default class App extends Component {
 
     return (
       <Container maxWidth="xl">
-        <Grid container spacing={2}>
+        <Grid container alignItems="center" spacing={2}>
           <Grid item>
             <Typography variant="h4" component="h4" gutterBottom>
               ev0-skin-gen
             </Typography>
           </Grid>
           <Grid item>
-            <Button onClick={this.saveJson} color="primary" className="save-button" aria-label="edit">
+            <Button onClick={this.saveJson} variant="contained" color="primary" className="save-button">
               Save
             </Button>
           </Grid>
