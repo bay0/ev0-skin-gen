@@ -11,6 +11,7 @@ import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import Button from "@material-ui/core/Button";
 import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Container from "@material-ui/core/Container";
 
 const ITEM_INDEX = "https://raw.githubusercontent.com/bay0/CSGO-skin-ID-dumper/master/item_index.json";
@@ -57,27 +58,34 @@ export default class App extends Component {
     for(let i = 0; i < weapons.length; i++) {
       const weapon = weapons[i];
       const skinfield = document.getElementById(`${weapon.id}-skin-field`).value;
+      const wearfield = parseFloat(document.getElementById(`${weapon.id}-wear-field`).value);
+      const seedfield = parseInt(document.getElementById(`${weapon.id}-seed-field`).value);
       const stattrak = document.getElementById(`${weapon.id}-stattrak-checkbox`).checked;
+      const ct = document.getElementById(`${weapon.id}-ct-checkbox`).checked;
+      const t = document.getElementById(`${weapon.id}-t-checkbox`).checked;
       if(skinfield !== "" && skinfield !== null) {
-        let matchSkinId = skinfield.match(regex)[0]
+        let matchSkinId = parseInt(skinfield.match(regex)[0]);
         let skinElement = {
             "dyn_stattrak": stattrak,
-            "paintkit": parseInt(matchSkinId),
-            "seed": 0,
+            "paintkit": matchSkinId,
+            "seed": seedfield,
             "stattrak": -1,
             "weapon": weapon.id,
-            "wear": 0.009999999776482582
+            "wear": wearfield,
         }
-        skinSave["CT"]["Skins"].push(skinElement);
-        skinSave["T"]["Skins"].push(skinElement);
+        if(ct) {
+          skinSave["CT"]["Skins"].push(skinElement);
+        } 
+        if(t) {
+          skinSave["T"]["Skins"].push(skinElement);
+        }
       }
     }
     var a = document.createElement("a");
     var file = new Blob([JSON.stringify(skinSave, null, 2)], {type: 'application/json'});
     a.href = URL.createObjectURL(file);
     a.download = "Skins";
-    console.log(skinSave);
-    //a.click();
+    a.click();
   }
 
   weaponCard(id, name) {
@@ -91,15 +99,29 @@ export default class App extends Component {
           </CardContent>
           <CardActions>
             <Grid container direction="column" spacing={1}>
-              {/* <Grid item>
-                <TextField label="Wear" variant="outlined" />
-              </Grid> */}
               <Grid item>
-                StatTrak™
-                <Checkbox
-                  id={`${id}-stattrak-checkbox`}
-                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                <FormControlLabel
+                  control={<Checkbox id={`${id}-t-checkbox`} defaultChecked inputProps={{ 'aria-label': 'primary checkbox' }} />}
+                  label="T"
                 />
+              </Grid>
+              <Grid item>
+                <FormControlLabel
+                  control={<Checkbox id={`${id}-ct-checkbox`} defaultChecked inputProps={{ 'aria-label': 'primary checkbox' }} />}
+                  label="CT"
+                />
+              </Grid>
+              <Grid item>
+                <FormControlLabel
+                  control={<Checkbox id={`${id}-stattrak-checkbox`} inputProps={{ 'aria-label': 'primary checkbox' }} />}
+                  label="StatTrak™"
+                />
+              </Grid>
+              <Grid item>
+                <TextField fullWidth id={`${id}-seed-field`} defaultValue="0" label="Seed" variant="outlined" />
+              </Grid>
+              <Grid item>
+                <TextField fullWidth id={`${id}-wear-field`} defaultValue="0.009999999776482582" label="Wear" variant="outlined" />
               </Grid>
               <Grid item>
               <Autocomplete
@@ -150,6 +172,11 @@ export default class App extends Component {
             <Button onClick={this.saveJson} variant="contained" color="primary" className="save-button">
               Save
             </Button>
+          </Grid>
+          <Grid item>
+            <Typography>
+              Made with <span role="img" aria-label="heart">❤️</span> by bay
+            </Typography>
           </Grid>
         </Grid>
         <Grid container justify="center" alignItems="center" spacing={2}>
