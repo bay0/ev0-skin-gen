@@ -1,0 +1,134 @@
+[
+    {
+        "id": 1,
+        "name": "Desert Eagle"
+    },
+    {
+        "id": 2,
+        "name": "Dual Berettas"
+    },
+    {
+        "id": 3,
+        "name": "Five-SeveN"
+    },
+    {
+        "id": 4,
+        "name": "Glock-18"
+    },
+    {
+        "id": 7,
+        "name": "Ak-47"
+    },
+    {
+        "id": 8,
+        "name": "AUG"
+    },
+    {
+        "id": 9,
+        "name": "AWP"
+    },
+    {
+        "id": 10,
+        "name": "Famas"
+    },
+    {
+        "id": 11,
+        "name": "G3SG1"
+    },
+    {
+        "id": 13,
+        "name": "Galil AR"
+    },
+    {
+        "id": 14,
+        "name": "M249"
+    },
+    {
+        "id": 16,
+        "name": "M4A4"
+    },
+    {
+        "id": 17,
+        "name": "MAC-10"
+    },
+    {
+        "id": 19,
+        "name": "P90"
+    },
+    {
+        "id": 23,
+        "name": "MP5-SD"
+    },
+    {
+        "id": 24,
+        "name": "UMP-45"
+    },
+    {
+        "id": 25,
+        "name": "XM1014"
+    },
+    {
+        "id": 26,
+        "name": "PP-Bizon"
+    },
+    {
+        "id": 27,
+        "name": "MAG-7"
+    },
+    {
+        "id": 28,
+        "name": "Negev"
+    },
+    {
+        "id": 29,
+        "name": "Sawed-Off"
+    },
+    {
+        "id": 30,
+        "name": "Tec-9"
+    },
+    {
+        "id": 32,
+        "name": "P2000"
+    },
+    {
+        "id": 33,
+        "name": "MP7"
+    },
+    {
+        "id": 34,
+        "name": "MP9"
+    },
+    {
+        "id": 35,
+        "name": "Nova"
+    },
+    {
+        "id": 36,
+        "name": "P250"
+    },
+    {
+        "id": 38,
+        "name": "SCAR-20"
+    },
+    {
+        "id": 39,
+        "name": "SG 553"
+    },
+    {
+        "id": 60,
+        "name": "M4A1-S"
+    },
+    {
+        "id": 61,
+        "name": "USP-S"
+    },
+    {
+        "id": 63,
+        "name": "CZ75-Auto"
+    },
+    {
+        "id": 64,
+        "name": "R8 Revolver"
+    }
+]
