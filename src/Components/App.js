@@ -15,6 +15,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Container from "@material-ui/core/Container";
 
 const ITEM_INDEX = "https://raw.githubusercontent.com/bay0/CSGO-skin-ID-dumper/master/item_index.json";
+const CSGO_STASH = "https://csgostash.com/weapon/";
 const regex = /(\d+)[^-]*$/gm;
 
 const initialState = {
@@ -88,40 +89,47 @@ export default class App extends Component {
     a.click();
   }
 
-  weaponCard(id, name) {
+  weaponCard(id, name, img) {
     return (
       <Grid key={`${id}-grid`} item>
         <Card>
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
-              {name} - {id}
+              <a style={{color: 'inherit'}} href={`${CSGO_STASH}${name}`} target="_blank" rel="noopener noreferrer">{name}</a> - {id}
             </Typography>
           </CardContent>
           <CardActions>
             <Grid container direction="column" spacing={1}>
-              <Grid item>
-                <FormControlLabel
-                  control={<Checkbox id={`${id}-t-checkbox`} defaultChecked inputProps={{ 'aria-label': 'primary checkbox' }} />}
-                  label="T"
-                />
-              </Grid>
-              <Grid item>
-                <FormControlLabel
-                  control={<Checkbox id={`${id}-ct-checkbox`} defaultChecked inputProps={{ 'aria-label': 'primary checkbox' }} />}
-                  label="CT"
-                />
-              </Grid>
-              <Grid item>
-                <FormControlLabel
-                  control={<Checkbox id={`${id}-stattrak-checkbox`} inputProps={{ 'aria-label': 'primary checkbox' }} />}
-                  label="StatTrak™"
-                />
+              <Grid item container spacing={1}>
+                <Grid item container direction="column" xs={6}>
+                  <Grid item>
+                    <FormControlLabel
+                      control={<Checkbox id={`${id}-t-checkbox`} defaultChecked inputProps={{ 'aria-label': 'primary checkbox' }} />}
+                      label="T"
+                    />
+                  </Grid>
+                  <Grid item>
+                    <FormControlLabel
+                      control={<Checkbox id={`${id}-ct-checkbox`} defaultChecked inputProps={{ 'aria-label': 'primary checkbox' }} />}
+                      label="CT"
+                    />
+                  </Grid>
+                  <Grid item>
+                    <FormControlLabel
+                      control={<Checkbox id={`${id}-stattrak-checkbox`} inputProps={{ 'aria-label': 'primary checkbox' }} />}
+                      label="StatTrak™"
+                    />
+                  </Grid>
+                </Grid>
+                <Grid item>
+                  <img height="125" width="125" src={img} alt={`Weapon - ${name}`} />
+                </Grid>
               </Grid>
               <Grid item>
                 <TextField fullWidth id={`${id}-seed-field`} defaultValue="0" label="Seed" variant="outlined" />
               </Grid>
               <Grid item>
-                <TextField fullWidth id={`${id}-wear-field`} defaultValue="0.009999999776482582" label="Wear" variant="outlined" />
+                <TextField fullWidth id={`${id}-wear-field`} defaultValue="0.00" label="Wear" variant="outlined" />
               </Grid>
               <Grid item>
               <Autocomplete
@@ -157,7 +165,7 @@ export default class App extends Component {
     }
 
     let weaponCards = weapons.map(weapon => {
-      return this.weaponCard(weapon.id, weapon.name);
+      return this.weaponCard(weapon.id, weapon.name, weapon.img);
     })
 
     return (
@@ -177,6 +185,9 @@ export default class App extends Component {
             <Typography>
               Made with <span role="img" aria-label="heart">❤️</span> by bay
             </Typography>
+          </Grid>
+          <Grid item>
+            <PacmanLoader size={10} color={"#123abc"} loading={true} />
           </Grid>
         </Grid>
         <Grid container justify="center" alignItems="center" spacing={2}>
