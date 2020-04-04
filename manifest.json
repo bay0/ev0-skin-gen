@@ -1,4 +1,6 @@
 {
+    "short_name": "ev0-skin-gen",
+    "name": "Create Skins file for ev0lve's CSGO cheat",
     "theme_color": "#2196f3",
     "background_color": "#2196f3",
     "display": "browser",
