@@ -34,6 +34,11 @@
         "img": "https://media.steampowered.com/apps/730/icons/econ/weapons/base_weapons/weapon_awp.2899e1c6345ed05d62bdbe112db1b117d022e477.png"
     },
     {
+        "id": 40,
+        "name": "SSG 08",
+        "img": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/weapons/base_weapons/weapon_ssg08.271a856f50fd6ac1014334098b1a43d61bddb892.png"
+    },
+    {
         "id": 10,
         "name": "FAMAS",
         "img": "https://media.steampowered.com/apps/730/icons/econ/weapons/base_weapons/weapon_famas.c897878873beb9e9ca4c68ef3a666869c6e78031.png"
