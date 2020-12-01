@@ -122,7 +122,7 @@ export default class App extends Component {
                   </Grid>
                 </Grid>
                 <Grid item>
-                  <img height="125" width="125" src={img} alt={`Weapon - ${name}`} />
+                  <img height="auto" width="125" src={img} alt={`Weapon - ${name}`} />
                 </Grid>
               </Grid>
               <Grid item>
